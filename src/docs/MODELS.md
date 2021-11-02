@@ -24,7 +24,7 @@ Course :
     -slug
     -title
     -description
-    -allowed memberships           (foreignkey to Membership)
+    -allowed memberships           (ManyToMany to Membership)
 
 
 Lesson : 
