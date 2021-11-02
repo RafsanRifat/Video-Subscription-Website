@@ -1,5 +1,7 @@
 from django.db import models
 from django.conf import settings
+from django.db.models.signals import post_save
+import stripe
 
 # Create your models here.
 
@@ -27,6 +29,20 @@ class UserMembership(models.Model):
 
     def __str__(self):
         return self.user.username
+
+
+def post_save_usermembership_create(sender, instance, created, **args):
+    if created:
+        UserMembership.objects.get_or_create(user=instance)
+
+    user_membership, created = UserMembership.objects.get_or_create(user=instance)
+
+    if user_membership.stripe_customer_id is None or user_membership.stripe_customer_id == '':
+        new_customer_id = stripe.Customer.create(email=instance.mail)
+        user_membership.stripe_customer_id = new_customer_id['id']
+        user_membership.save()
+
+post_save.connect(post_save_usermembership_create, sender=settings.AUTH_USER_MODEL)
 
 
 class Subscription(models.Model):
