@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -26,7 +25,6 @@ SECRET_KEY = 'django-insecure-aou^b(i1$tab*3mqn8-h!$(#n5*a=c(c=58f=$4t3t585@r3qm
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -71,7 +69,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'videoservice.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
@@ -81,7 +78,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -101,7 +97,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -114,7 +109,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
@@ -132,3 +126,12 @@ MEDIA_ROOT = os.path.join(VENV_PATH, 'media_root')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Stripe --->>>
+
+if DEBUG:
+    STRIPE_PUBLISHABLE_KEY = 'pk_test_51Jqx0YFIYgM5uAssAFtKOQyl9uZY8bkrQFHTD6z5oi4AzwYTP8evnSYqj6BaxHerEFOPyVkGaDZIhNGKD8JlyAsD001fA00lEv'
+    STRIPE_SECRET_KEY = 'sk_test_51Jqx0YFIYgM5uAssYim24tC1MHJt9BEKUoapvNuEeImHofsaFdLOzziWfkgUFiruTmZ5lBF4Mp1R1VOMBUJaeca400RA9BNYxm'
+else:
+    STRIPE_PUBLISHABLE_KEY = ''
+    STRIPE_SECRET_KEY = ''
