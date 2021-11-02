@@ -15,8 +15,8 @@ UserMembership :
 
 
 Subscription : 
-    -user membership
-    -stripe subscription id     (foreignkey to UserMembership)
+    -user membership            (foreignkey to UserMembership)
+    -stripe subscription id     
     -active
 
 
