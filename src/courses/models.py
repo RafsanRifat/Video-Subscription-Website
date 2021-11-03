@@ -1,5 +1,5 @@
 from django.db import models
-from src.memberships.models import Membership
+from memberships.models import Membership
 
 
 # Create your models here.
