@@ -8,9 +8,9 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Course List View page</h1>
-    {% for object in object_list %}
-        <a href="{{ object.get_absolute_url }}">{{object}}</a>
-    {% endfor %}
+<h1>Course List View page</h1>
+{% for object in object_list %}
+<a href="{{ object.get_absolute_url }}">{{object}}</a>
+{% endfor %}
 </body>
 </html>
