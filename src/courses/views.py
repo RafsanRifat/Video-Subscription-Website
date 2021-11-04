@@ -24,3 +24,8 @@ class LessonDetailView(View):
         lesson_qs = course.lessons.filter(slug=lesson_slug)
         if lesson_qs.exists():
             lesson = lesson_qs.first()
+
+        context = {
+            'object': lesson
+        }
+        return render(request, 'courses/lesson_detail.html', context)
